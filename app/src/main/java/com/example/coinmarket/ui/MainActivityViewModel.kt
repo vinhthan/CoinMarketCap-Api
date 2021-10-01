@@ -4,7 +4,7 @@ import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.coinmarket.model.Coin
-import com.example.coinmarket.network.RetrofitInstant
+import com.example.coinmarket.network.RetrofitInstance
 import com.example.coinmarket.network.RetrofitService
 import retrofit2.Call
 import retrofit2.Callback
@@ -19,7 +19,7 @@ class MainActivityViewModel : ViewModel() {
     }
 
     fun getCoin(start: Int, limit: Int){
-        val retrofitInstance = RetrofitInstant.getRetrofit().create(RetrofitService::class.java)
+        val retrofitInstance = RetrofitInstance.getRetrofit().create(RetrofitService::class.java)
         val call = retrofitInstance.getDataCoin(start, limit)
         call.enqueue(object : Callback<Coin>{
             override fun onResponse(call: Call<Coin>, response: Response<Coin>) {
