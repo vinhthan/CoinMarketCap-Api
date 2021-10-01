@@ -1,8 +1,6 @@
 package com.example.coinmarket.ui
 
-import android.content.Context
 import android.util.Log
-import android.widget.Toast
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.coinmarket.model.Coin
@@ -20,9 +18,9 @@ class MainActivityViewModel : ViewModel() {
         return listCoin
     }
 
-    fun getCoin(start: Int){
+    fun getCoin(start: Int, limit: Int){
         val retrofitInstance = RetrofitInstant.getRetrofit().create(RetrofitService::class.java)
-        val call = retrofitInstance.getDataCoin(start)
+        val call = retrofitInstance.getDataCoin(start, limit)
         call.enqueue(object : Callback<Coin>{
             override fun onResponse(call: Call<Coin>, response: Response<Coin>) {
                 if (response.isSuccessful){

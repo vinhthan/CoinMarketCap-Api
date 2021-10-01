@@ -46,8 +46,6 @@ class MainActivity : AppCompatActivity() {
                 mAdapter.notifyDataSetChanged()
             }
         })
-        viewModel.getCoin(1)
-
-
+        viewModel.getCoin(1, 500)
     }
 }

@@ -12,7 +12,11 @@ interface RetrofitService {
     @GET("latest")
     @Headers(
         "X-CMC_PRO_API_KEY: da4b52b3-c8fa-41d6-84fb-25494b3cef9f",
-        "Accept: application/json")
-    fun getDataCoin(@Query("start") start: Int): Call<Coin>
+        "Accept: application/json"
+    )
+    fun getDataCoin(
+        @Query("start") start: Int,
+        @Query("limit") page: Int
+    ): Call<Coin>
 
 }

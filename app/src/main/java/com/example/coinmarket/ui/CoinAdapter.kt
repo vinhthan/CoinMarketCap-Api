@@ -29,10 +29,12 @@ class CoinAdapter : RecyclerView.Adapter<CoinAdapter.CoinViewHolder>(){
         var tvNameCoin: TextView = view.tv_name_coin
         var tvPrice: TextView = view.tv_price
         var tvTime: TextView = view.tv_time
+        var tvRank: TextView = view.tv_rank
         fun bind(data: Data){
             tvNameCoin.text = data.name
             tvPrice.text = data.quote?.USD?.price?.toString()
             tvTime.text = data.last_updated
+            tvRank.text = data.cmc_rank?.toString()
         }
     }
 
