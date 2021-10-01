@@ -12,9 +12,9 @@ import retrofit2.Response
 
 class MainActivityViewModel : ViewModel() {
 
-    var listCoin: MutableLiveData<Coin> = MutableLiveData()
+    var listCoin: MutableLiveData<Coin?> = MutableLiveData()
 
-    fun getCoinObservable(): MutableLiveData<Coin> {
+    fun getCoinObservable(): MutableLiveData<Coin?> {
         return listCoin
     }
 
@@ -30,7 +30,7 @@ class MainActivityViewModel : ViewModel() {
             }
 
             override fun onFailure(call: Call<Coin>, t: Throwable) {
-                //listCoin.postValue(null)
+                listCoin.postValue(null)
                 Log.d("123123", "onFailure $t")
             }
 

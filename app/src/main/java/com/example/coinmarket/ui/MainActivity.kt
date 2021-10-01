@@ -37,7 +37,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun initViewModel(){
         viewModel = ViewModelProvider(this)[MainActivityViewModel::class.java]
-        viewModel.getCoinObservable().observe(this, Observer<Coin> {
+        viewModel.getCoinObservable().observe(this, Observer<Coin?> {
             if (it == null) {
                 Toast.makeText(this, "data empty", Toast.LENGTH_SHORT).show()
             } else{
