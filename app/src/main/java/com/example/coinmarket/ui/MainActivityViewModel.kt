@@ -1,6 +1,8 @@
 package com.example.coinmarket.ui
 
+import android.content.Context
 import android.util.Log
+import android.widget.Toast
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.coinmarket.model.Coin
@@ -26,6 +28,8 @@ class MainActivityViewModel : ViewModel() {
                 if (response.isSuccessful){
                     listCoin.postValue(response.body())
                     Log.d("123123", "onResponse")
+                } else {
+                    listCoin.postValue(null)
                 }
             }
 
